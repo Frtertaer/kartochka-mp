@@ -1,0 +1,43 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="google-site-verification" content="jerUTdLPnZoujKoRigaaSObV2zOqsGB2DzTUj_m6MEk" /><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google-site-verification" content="DaT_PmLJqIbrIOJ0_ef38X4XyWXsL7vUqAC3TGmxetI" />
+<meta name="yandex-verification" content="174b1c9c4e349816" />
+<title>Проверка текста карточки WB и Ozon: счётчик символов и стоп-слова</title><meta name="description" content="Бесплатный счётчик символов для названия и описания Wildberries и Ozon с лимитами площадок и проверкой рекламных слов, капса, эмодзи и повторов."><link rel="canonical" href="https://frtertaer.github.io/kartochka-mp/tools/">
+<meta property="og:type" content="website"><meta property="og:title" content="Проверка текста карточки WB и Ozon: счётчик символов и стоп-слова"><meta property="og:description" content="Бесплатный счётчик символов для названия и описания Wildberries и Ozon с лимитами площадок и проверкой рекламных слов, капса, эмодзи и повторов."><meta property="og:url" content="https://frtertaer.github.io/kartochka-mp/tools/"><meta property="og:image" content="https://frtertaer.github.io/kartochka-mp/img/termokruzhka_gen2.png"><meta property="og:locale" content="ru_RU">
+<link rel="icon" href="/kartochka-mp/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/kartochka-mp/favicon.png"><link rel="stylesheet" href="/kartochka-mp/style.css"></head><body><header><nav><b><a href="/kartochka-mp/">Карточка МП</a></b><input type="checkbox" id="mt" hidden><label for="mt" class="burger" aria-label="Меню">☰</label><div class="links"><a href="/kartochka-mp/prompts/">Промпты</a><a href="/kartochka-mp/guides/">Гайды по категориям</a><a href="/kartochka-mp/examples/">До и после</a><a href="/kartochka-mp/infographics/">Инфографика</a><a href="/kartochka-mp/limits/">Лимиты WB и Ozon</a><a href="/kartochka-mp/photo/">Требования к фото</a><a href="/kartochka-mp/checklist/">Чек-лист публикации</a><a href="/kartochka-mp/rich/">Рич-контент Ozon</a><a href="/kartochka-mp/video/">Видео в карточке</a><a href="/kartochka-mp/tools/">Проверка текста</a><a href="/kartochka-mp/#tarify">Цены</a></div></nav></header>
+<main><h1>Проверка текста карточки для Wildberries и Ozon</h1>
+<p>Вставьте название и описание — счётчик сразу покажет длину относительно лимитов площадок и подсветит то, что модерация или покупатели часто не любят. Всё считается в вашем браузере, текст никуда не отправляется.</p>
+<label for="t"><b>Название</b></label><input type="text" id="t" placeholder="Например: Термокружка 450 мл стальная с крышкой для кофе">
+<div class="cnt" id="tc"></div>
+<label for="d"><b>Описание / аннотация</b></label><textarea id="d" rows="9" placeholder="Текст описания"></textarea>
+<div class="cnt" id="dc"></div>
+<h2>Что нашлось</h2><div id="w" class="p">Пока пусто — вставьте текст.</div>
+<p id="fix" style="display:none"><a class="btn" href="https://kwork.ru/creative-writing/54898097/napishu-seo-opisanie-kartochki-tovara-dlya-wildberries-ili-ozon" rel="nofollow">Исправить от 500 ₽</a> <span class="note">Перепишу название и описание под лимиты и без стоп-слов. Заказ через Kwork.</span></p>
+<p class="note">Лимиты: название WB — до 60 символов, Ozon — до 200, одно слово на Ozon — до 27 символов; описание WB — от 1000 до 5000 символов в зависимости от категории; аннотация Ozon — до 6000 символов вместе с html-тегами. Подробности и источники — на странице <a href="/kartochka-mp/limits/">лимитов</a>. Список стоп-слов — подсказка, а не официальный перечень площадок.</p>
+<script>
+const STOP=["лучш[а-яё]*","скидк[а-яё]*","распрод[а-яё]*","акци(?!з|онер)[а-яё]*","деш[её]в[а-яё]*","бесплатн[а-яё]*","сам(ый|ая|ое|ые|ого|ой|ую|ых|ым|ыми|ом)","хит(|а|у|ом|ы|ов|ам)","хит продаж","лидер(|а|ы|ов)? продаж","топ(|а|е|у|ом|ы|ов)(-?\\d+)?","куп(и|ите|ить|им|ишь|лю|ят|ив|ай|айте)","закаж[а-яё]*","оригинал(|а|у|ом|ы|ов|ьн[а-яё]*)","копи(я|и|ю|ей|ям)","номер один","№ ?1","гарантия качества","успе(й|йте|вай|вайте)","напиши(те)? менеджеру","сравни(те)?","продан[а-яё]*","за отзыв[а-яё]*","кешб[эе]к[а-яё]*","кэшб[эе]к[а-яё]*"];
+const $=id=>document.getElementById(id);
+function cls(n,max){return n>max?'over':'okc'}
+function run(){
+ const t=$('t').value, d=$('d').value, plain=d.replace(/<[^>]*>/g,'');
+ const longw=t.split(/\s+/).filter(w=>w.length>27);
+ $('tc').innerHTML=`${t.length} симв. · WB: <span class="${cls(t.length,60)}">${t.length}/60</span> · Ozon: <span class="${cls(t.length,200)}">${t.length}/200</span>`+(longw.length?` · <span class="over">слово длиннее 27 симв.: ${longw.join(', ')}</span>`:'');
+ $('dc').innerHTML=`${d.length} симв. (без тегов ${plain.length}) · WB: <span class="${cls(plain.length,5000)}">${plain.length}/1000–5000</span> — смотрите лимит своей категории · Ozon: <span class="${cls(d.length,6000)}">${d.length}/6000</span>`;
+ const all=(t+'\n'+plain), low=all.toLowerCase(), out=[];
+ const sw=[];STOP.forEach(w=>{const re=new RegExp('(^|[^а-яёa-z0-9])('+w+')(?=$|[^а-яёa-z0-9])','gi');let m;while((m=re.exec(low))){if(!sw.includes(m[2]))sw.push(m[2])}});
+ if(sw.length) out.push('Рекламные и запрещённые слова: <b>'+sw.join(', ')+'</b>');
+ const capsRu=(all.match(/[А-ЯЁ]{4,}/g)||[]);
+ if(capsRu.length) out.push('Слова капсом: <b>'+[...new Set(capsRu)].join(', ')+'</b>');
+ const emo=all.match(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu); if(emo) out.push('Эмодзи: <b>'+[...new Set(emo)].join(' ')+'</b>');
+ if(/[!?]{2,}/.test(all)) out.push('Повторные знаки «!!» или «??»');
+ const words=low.match(/[а-яёa-z0-9]{4,}/g)||[], cnt={}; words.forEach(w=>cnt[w]=(cnt[w]||0)+1);
+ const tw=(t.toLowerCase().match(/[а-яёa-z0-9]{4,}/g)||[]), tc={}; tw.forEach(w=>tc[w]=(tc[w]||0)+1);
+ const rt=Object.keys(tc).filter(w=>tc[w]>1); if(rt.length) out.push('Повторы в названии: <b>'+rt.join(', ')+'</b>');
+ const rd=Object.keys(cnt).filter(w=>cnt[w]>=5).sort((a,b)=>cnt[b]-cnt[a]).slice(0,8); if(rd.length) out.push('Часто повторяются в тексте: '+rd.map(w=>w+' ×'+cnt[w]).join(', '));
+ if(/(https?:\/\/|www\.|\+7|8\s?\(?9\d\d)/i.test(all)) out.push('Похоже на ссылку или телефон — в карточке их размещать нельзя');
+ $('w').innerHTML=all.trim()?(out.length?'<ul>'+out.map(x=>'<li>'+x+'</li>').join('')+'</ul>':'<span class="okc">Явных проблем не найдено.</span>'):'Пока пусто — вставьте текст.';
+ $('fix').style.display=(all.trim()&&(out.length||t.length>60||longw.length))?'block':'none';
+}
+$('t').oninput=run;
+ $('d').oninput=run;
+</script>
+<p class="btns"><a class="btn" href="https://kwork.ru/creative-writing/54898097/napishu-seo-opisanie-kartochki-tovara-dlya-wildberries-ili-ozon" rel="nofollow">Заказать текст — от 500 ₽</a> <a class="btn" href="https://kwork.ru/e-commerce-social-network/55208039/sdelayu-infografiku-dlya-kartochki-tovara-wildberries-i-ozon" rel="nofollow">Заказать инфографику — 2500 ₽</a></p></main><footer>Карточка МП — бесплатный справочник для продавцов Wildberries и Ozon. Не связан с Wildberries и Ozon. Правила площадок меняются: сверяйтесь с кабинетом продавца. Обновлено 2026-10-23. </footer><div class="fbtn"><a class="btn" href="https://kwork.ru/creative-writing/54898097/napishu-seo-opisanie-kartochki-tovara-dlya-wildberries-ili-ozon" rel="nofollow">Заказать текст — от 500 ₽</a> <a class="btn" href="https://kwork.ru/e-commerce-social-network/55208039/sdelayu-infografiku-dlya-kartochki-tovara-wildberries-i-ozon" rel="nofollow">Заказать инфографику — 2500 ₽</a></div><script>document.querySelectorAll('button[data-c]').forEach(b=>b.onclick=()=>{navigator.clipboard.writeText(document.getElementById(b.dataset.c).innerText);b.textContent='Скопировано';setTimeout(()=>b.textContent='Копировать',1500)})</script></body></html>

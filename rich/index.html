@@ -1,0 +1,41 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="google-site-verification" content="jerUTdLPnZoujKoRigaaSObV2zOqsGB2DzTUj_m6MEk" /><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google-site-verification" content="DaT_PmLJqIbrIOJ0_ef38X4XyWXsL7vUqAC3TGmxetI" />
+<meta name="yandex-verification" content="174b1c9c4e349816" />
+<title>Рич-контент Ozon: размеры картинок и требования</title><meta name="description" content="Размеры картинок рич-контента Ozon: 640×640 для телефона, 1416×708 или 708×708 для компьютера, форматы JPG и PNG до 10 МБ, правила ссылок и заголовков блоков."><link rel="canonical" href="https://frtertaer.github.io/kartochka-mp/rich/">
+<meta property="og:type" content="website"><meta property="og:title" content="Рич-контент Ozon: размеры картинок и требования"><meta property="og:description" content="Размеры картинок рич-контента Ozon: 640×640 для телефона, 1416×708 или 708×708 для компьютера, форматы JPG и PNG до 10 МБ, правила ссылок и заголовков блоков."><meta property="og:url" content="https://frtertaer.github.io/kartochka-mp/rich/"><meta property="og:image" content="https://frtertaer.github.io/kartochka-mp/img/termokruzhka_gen2.png"><meta property="og:locale" content="ru_RU">
+<link rel="icon" href="/kartochka-mp/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/kartochka-mp/favicon.png"><link rel="stylesheet" href="/kartochka-mp/style.css"></head><body><header><nav><b><a href="/kartochka-mp/">Карточка МП</a></b><input type="checkbox" id="mt" hidden><label for="mt" class="burger" aria-label="Меню">☰</label><div class="links"><a href="/kartochka-mp/prompts/">Промпты</a><a href="/kartochka-mp/guides/">Гайды по категориям</a><a href="/kartochka-mp/examples/">До и после</a><a href="/kartochka-mp/infographics/">Инфографика</a><a href="/kartochka-mp/limits/">Лимиты WB и Ozon</a><a href="/kartochka-mp/photo/">Требования к фото</a><a href="/kartochka-mp/checklist/">Чек-лист публикации</a><a href="/kartochka-mp/rich/">Рич-контент Ozon</a><a href="/kartochka-mp/video/">Видео в карточке</a><a href="/kartochka-mp/tools/">Проверка текста</a><a href="/kartochka-mp/#tarify">Цены</a></div></nav></header>
+<main><h1>Рич-контент Ozon: размеры картинок и требования</h1>
+<p>Рич-контент — это блоки из картинок, заголовков и текста под фото карточки Ozon. Площадка называет его бесплатным маркетинговым инструментом, который превращает карточку в небольшой лендинг. Ниже — что проверить до сборки, чтобы конструктор принял макет с первого раза. Цифры взяты из разборов справки Ozon и документации конструктора; ссылки — внизу страницы.</p>
+
+<h2>Размеры картинок</h2>
+<div class="tw"><table><tr><th>Версия</th><th>Соотношение сторон</th><th>Минимальный размер</th></tr>
+<tr><td>Телефон</td><td>1:1</td><td>от 640×640 px</td></tr>
+<tr><td>Компьютер, широкая</td><td>2:1</td><td>от 1416×708 px</td></tr>
+<tr><td>Компьютер, квадрат</td><td>1:1</td><td>от 708×708 px</td></tr></table></div>
+<p>Предел для одной картинки — 16 мегапикселей. Не путайте эти размеры с фото в галерее карточки: там вертикальный формат 3:4, подробнее — на странице <a href="/kartochka-mp/photo/">требований к фото</a>.</p>
+
+<h2>Две версии каждой картинки</h2>
+<p>Для каждого блока нужна картинка для компьютера и отдельная для телефона. В коде JSON это поля <code>src</code> и <code>srcMobile</code>. Без обеих версий конструктор не даст применить результат.</p>
+
+<h2>Файлы и ссылки</h2>
+<ul>
+<li>Форматы — JPG, JPEG или PNG, вес файла — до 10 МБ.</li>
+<li>GIF лучше не использовать: по пересказам справки Ozon, с ними карточка долго загружается.</li>
+<li>Если картинка добавляется по ссылке, ссылка должна быть прямой и заканчиваться на .jpe, .jpeg, .jpg или .png. Яндекс Диск для этого не подходит.</li>
+<li>Ссылка с картинки может вести только на товар Ozon, на внешние сайты — нельзя.</li>
+<li>Значок «Честного знака» в блоки не ставят: отметку площадка добавляет сама.</li>
+</ul>
+
+<h2>Текст в блоках</h2>
+<ul>
+<li>Заголовок блока обрезается после двух строк. Пишите коротко, в три–пять слов.</li>
+<li>Не добавляйте картинки без текста. По пересказам справки Ozon, тогда внешние поисковые системы не смогут проиндексировать карточку.</li>
+<li>Главную выгоду пишите крупно в первом блоке, подробности — в следующих.</li>
+</ul>
+
+<h2>Где собрать и как добавить</h2>
+<p>Рич-контент собирают в визуальном редакторе, где блоки перетаскивают мышью, или в песочнице, где правят код JSON. В личном кабинете путь такой: «Товары» → «Список товаров» → «Редактировать товар» → вкладка «Медиа» → блок «Rich-контент». Для многих товаров сразу подойдёт шаблон XLS со столбцом «Rich-контент JSON».</p>
+
+<h2>Что рич-контент не исправит</h2>
+<p>Блоки работают поверх карточки и не заменяют её основу. Пустые обязательные характеристики и неверные габариты останутся такими же, сколько блоков ни добавить. Поэтому сначала пройдите <a href="/kartochka-mp/checklist/">чек-лист публикации</a>, потом беритесь за оформление. Тезисы для блоков поможет составить <a href="/kartochka-mp/prompts/">промпт из раздела «Инфографика»</a>, а длину текста — <a href="/kartochka-mp/tools/">бесплатная проверка текста</a>.</p>
+<p class="note">Источники: пересказы справки Ozon «Rich-контент» и документации конструктора rich-content.ozon.ru — <a href="https://fulsystem.ru/blog/rich-kontent-ozon/" rel="nofollow">FulSystem</a>, <a href="https://gen202.com/kartochka-tovara-ozon/" rel="nofollow">Gen202</a>, <a href="https://obliqapp.ru/blog/ru/rich-kontent-ozon" rel="nofollow">Облик</a>. Собрано по пересказам 2026-10-23. Требования меняются — сверяйтесь с подсказками конструктора в кабинете Ozon.</p></main><footer>Карточка МП — бесплатный справочник для продавцов Wildberries и Ozon. Не связан с Wildberries и Ozon. Правила площадок меняются: сверяйтесь с кабинетом продавца. Обновлено 2026-10-23. </footer><script>document.querySelectorAll('button[data-c]').forEach(b=>b.onclick=()=>{navigator.clipboard.writeText(document.getElementById(b.dataset.c).innerText);b.textContent='Скопировано';setTimeout(()=>b.textContent='Копировать',1500)})</script></body></html>
